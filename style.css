@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #f7f5ff !important;
+}
+
+nav{
+    background: #fff;
+}
+
+#navbar-brand{
+    color: #7360DF;
+    font-size: 2em;
+}
+
+#home{
+    background: #7360DF;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    border-radius: 30px;
+    margin: 50px;
+}
+
+.logoName h1,
+.logoName h4{
+    color: #fff;
+}
+
+.heading img{
+    width: 10%;
+}
+
+.gender input[type = radio]{
+    display: none;
+}
+
+.gender label{
+    width: 100px;
+    color: #7360DF;
+    border: 2px solid #7360DF;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.gender label:hover{
+    cursor: pointer;
+}
+
+.gender input[type = radio]:checked + label{
+    background-color: #7360DF;
+    color: white;
+}
+
+.age label{
+    font-size: 10px;
+}
+
+.colors{
+    position: relative;
+}
+
+.colors .yellow{
+    width: 25%;
+    height: 5px;
+    margin: 2px;
+    background-color: rgb(255, 213, 0);
+}
+
+.colors .green{
+    width: 25%;
+    height: 5px;
+    margin: 2px;
+    background-color: rgb(0, 218, 44);
+}
+
+.colors .orange{
+    width: 25%;
+    height: 5px;
+    margin: 2px;
+    background-color: rgb(255, 149, 0);
+}
+
+.colors .red{
+    width: 25%;
+    height: 5px;
+    margin: 2px;
+    background-color: rgb(227, 0, 0);
+}
+
+.colors .black{
+    width:5px;
+    height: 15px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 1s;
+}
+
+#warning{
+    visibility: hidden;
+    font-size: 12px;
+}
+
+#comments{
+    visibility: hidden;
+    font-size: 12px;
+}
+
+.suggestions{
+    font-size: 10px;
+}
+
+.indicators p{
+    font-size: 10px;
+    margin-right: 50px;
+}
+
+#calcHolder{
+    position: relative;
+    padding: 50px;
+}
+.contentHolder{
+    position: relative;
+    height: 35vh;
+}
+
+.contentSub{
+    height: 35vh;
+}
+
+.ideal{
+    position: absolute;
+    top: 100%;
+    left: 5%;
+    font-size: 10px;
+    margin: 5px;
+}
+
+.btnHolder{
+    width: 25%;
+}
+
+#btn{
+    background-color: #7360DF;
+    color: #fff;
+    width: 50%;
+}
+
+.intro{
+    width: 100%;
+    margin-top: 100px;
+    background-color: #fff;
+    padding: 50px 10px;
+}
+
+.intro h4{
+    color: #7360DF;
+}
+
+.intro p{
+    text-align: justify;
+}
+
+
+.instruction{
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+
+}
+
+.instruction h4{
+    color: #7360DF;
+    text-align: justify;
+}
+
+.eqns1{
+    width: auto;
+    height: auto;
+    margin-right: 20px;
+    padding: 10px;
+    background-color: #f7f5ff;
+    border: 2px solid #efecff;
+}
+
+.eqns1 span{
+    color: #1c00b9;
+}
+
+
+/* Media Query */
+
+@media screen and (max-width:600px){
+
+    #home{
+        padding: 20px;
+        border-radius: 0;
+        margin: 0;
+    }
+    
+    #calcHolder{
+        padding: 20px;
+    }
+
+    .calcSub{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #btn{
+        width: 100%;
+    }
+
+    .btnHolder{
+        width: 100%;
+    }
+
+    .contentHolder{
+        margin-top: 20px;
+    }
+
+    .age{
+        margin-top: 20px;
+    }
+
+    .indicators p{
+        margin: auto;
+    }
+
+    .heading img{
+        width:120px;
+    }
+
+    .eqns{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eqns1{
+        width: 100%;
+        height: auto;
+    }
+
+}

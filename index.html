@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./Resources/favicon.webp">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <span id="navbar-brand" class="navbar-brand mb-0 h1"><i class="fa-solid fa-heart-pulse"></i> DocSmart</span>
+        </div>
+    </nav>
+
+    <div id="home" class="mt-5">
+        <div class="heading d-flex">
+            <img src="./Resources/icon.png" alt="icon">
+            <div class="logoName p-3">
+                <h1>BMI Calculator</h1>
+                <h4>Body Mass Index</h4>
+            </div>
+        </div>
+
+        <div id="calcHolder" class="shadow-lg bg-light mt-4 rounded-4">
+            <div class="calcSub d-flex">
+                <div class="col-lg-4 col-xs-12">
+                    <div class="gender">
+                        <p>Gender</p>
+                        <!-- Male -->
+                        <input type="radio" id="male" name="gender">
+                        <label class="text-center" for="male"><i class="fa-solid fa-mars"></i> Male</label>
+
+                        <!-- Female -->
+                        <input type="radio" id="female" name="gender">
+                        <label class="text-center" for="female"><i class="fa-solid fa-venus"></i> Female</label>
+                    </div>
+
+                    <div class="height mt-4">
+                        <p>Height</p>
+                        <div class="inputHolder d-flex">
+                            <input id="height" class="form-control w-50" type="text" id="cm" name="height"
+                                placeholder="CM">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-lg-4 col-xs-12">
+                    <div class="age">
+                        <p>Age</p>
+                        <div class="d-flex">
+                            <input class="form-control w-50 h-25" type="text" name="age" id="age" placeholder="Years">
+                            <label class="fst-italic fw-medium m-2 text-secondary">between 2 yrs to 100 yrs</label>
+                        </div>
+                        <div id="warning">
+                            <p class="fst-italic fw-medium m-2 text-danger">Enter a valid age</p>
+                        </div>
+                    </div>
+
+                    <div class="weight">
+                        <p>Weight</p>
+                        <input id="weight" class="form-control w-50 h-25" type="text" name="weight" id="weight"
+                            placeholder="in Kg">
+                    </div>
+                </div>
+
+                <div class="contentHolder col-lg-4 col-xs-12">
+                    <div class="contentSub bg-secondary-subtle rounded-4 p-2">
+                        <p class="text-center text-danger fw-medium fs-5 mt-3">Your BMI is</p>
+                        <h4 id="bmi" class="text-center fw-bold mt-4">--</h4>
+
+                        <div class="meter mt-4">
+                            <div class="colors d-flex">
+                                <div id="pointer" class="black"></div>
+                                <div class="yellow mt-1"></div>
+                                <div class="green mt-1"></div>
+                                <div class="orange mt-1"></div>
+                                <div class="red mt-1"></div>
+                            </div>
+                            <div class="indicators d-flex">
+                                <p class="fst-italic fw-medium text-secondary mt-1 ms-1">Underweight</p>
+                                <p class="fst-italic fw-medium text-secondary mt-1">Normal</p>
+                                <p class="fst-italic fw-medium text-secondary mt-1">Overweight</p>
+                                <p class="fst-italic fw-medium text-secondary mt-1">Obesity</p>
+                            </div>
+                        </div>
+
+                        <div id="comments" class="text-center">
+                            <h5 id="motivation"></h5>
+                            <p class="suggestions fst-italic fw-medium text-secondary">By maintaining a healthy weight,
+                                you
+                                lower your risk of developing serious health problems.</p>
+                        </div>
+                    </div>
+
+                    <p class="ideal fst-italic fw-medium text-secondary">Healthy BMI range: 18.5 kg/m2 - 25 kg/m2</p>
+                </div>
+
+            </div>
+
+            <div class="btnHolder mt-5 d-flex">
+                <button id="btn" type="button" class="btn shadow" onclick="calculate()">Calculate</button>
+                <button id="btn" type="button" class="btn ms-3 shadow" onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro">
+        <div class="container">
+            <h4>Introduction to the body mass index (BMI)</h4>
+            <p class="text-secondary">
+                Body Mass Index (BMI) is widely used as an indicator of body fat content. Your weight alone is not
+                sufficient to establish if you are in a healthy weight range. For example, a tall but slender person can
+                weigh more than a short but plump individual. But the former may enjoy better health as long as their
+                weight is suitable for their height. The ideal weight is also likely to differ for men and women of
+                similar heights.
+            </p>
+            <p class="text-secondary">
+                How then do you know whether you fall in the healthy weight range or not? Your BMI solves this
+                confusion. It correlates your weight with your height and evaluates whether your weight is appropriate
+                for your stature. You can use a BMI calculator to find out your BMI.
+            </p>
+            <p class="text-secondary">
+                Although not an exact measurement of body fat percentage, in most cases, BMI is a reliable tool for
+                establishing risk levels for illnesses, especially ailments related to excess body fat. Many healthcare
+                professionals use BMI to determine effective doses for medicines. Often people with a higher BMI need
+                higher doses. Hence, it is crucial to be aware of your BMI to ensure your overall wellness.
+            </p>
+        </div>
+    </div>
+
+    <div class="instruction">
+        <div class="container">
+            <h4>How to calculate BMI</h4>
+            <p class="text-secondary">
+                If you want to calculate your BMI, you have to find out your weight and height first. Once you know
+                these values, you can arrive at the result by following the two steps mentioned below:
+            </p>
+            <p class="text-secondary">
+                1. Multiply your height by itself (height X height).
+                <br>
+                2. Divide your weight by the answer you get in the first step.
+            </p>
+            <p class="text-secondary">
+                The equations for calculating the BMI are as follows:
+            </p>
+            <div class="eqns d-flex">
+                <p class="eqns1">
+                    International System of Units (SI)
+                    <br>
+                    <span>BMI = weight (kg) ÷ (height (m))2</span>
+                    <br>
+                    Example: <br>
+                    For a 177 cm (1.77 m) individual weighing 75 kg,<br>
+                    BMI = 75 / (1.77 * 1.77) = 75/ 3.13 = 23.96
+                </p>
+                <p class="eqns1">
+                    Imperial System
+                    <br>
+                    <span>BMI = weight (lb) ÷ (height (inches)) 2×703</span>
+                    <br>
+                    Example: <br>
+                    For a 160-pound, 5’8” (68”) individual weighing 75 kg,<br>
+                    BMI = (160/ 68*68) * 703 = (160/4624) * 703 = 24.3
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-body-tertiary text-center">
+        <!-- Grid container -->
+        <div class="container p-4"></div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center text-light p-3" style="background-color: #7360DF;">
+            © 2024 Copyright:
+            <a class="text-light"
+                href="https://www.linkedin.com/in/febin-felix-409791287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank">Febin Felix</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
